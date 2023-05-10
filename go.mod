@@ -1,4 +1,4 @@
-module simple-pinyin
+module github.com/hudehan/simple-pinyin
 
 go 1.20
 
