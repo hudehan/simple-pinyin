@@ -17,13 +17,13 @@ Installation
 ------------
 
 ```
-go get -u github.com/mozillazg/go-pinyin
+go get -u github.com/hudehan/simple-pinyin
 ```
 
 install CLI tool:
 
 ```
-go get -u github.com/mozillazg/go-pinyin/cmd/pinyin
+go get -u github.com/hudehan/simple-pinyin/cmd/pinyin
 $ pinyin 中国人
 zhōng guó rén
 ```
@@ -33,7 +33,7 @@ Documentation
 --------------
 
 API documentation can be found here:
-https://godoc.org/github.com/mozillazg/go-pinyin
+https://godoc.org/github.com/hudehan/simple-pinyin
 
 
 Usage
