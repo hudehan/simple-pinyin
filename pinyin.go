@@ -1,7 +1,6 @@
 package pinyin
 
 import (
-	"fmt"
 	"strings"
 	"sync"
 )
@@ -45,7 +44,6 @@ func Pinyin(word string, args Args) (res []string) {
 		res = TransferPinYinPrefixStr(word, args.Fallback, args.Heteronym)
 	}
 
-	fmt.Printf("res:%v\n", res)
 	return res
 }
 
