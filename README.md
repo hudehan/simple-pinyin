@@ -47,9 +47,25 @@ import (
 	"github.com/hudehan/simple-pinyin"
 )
 
+
+
 func main() {
     hans := "长歌行"
 
+
+// 可以选择的模式如下
+
+[//]: # (	Normal    = iota // 普通风格，返回类型为[chang ge xing] 开启多音字后为 [chang|zhange ge  xing|hang])
+
+[//]: # (	Str              // 字符串格式 [changgexing] 开启多音字后为 [changgexing zhanggexing changgehang zhanggehang])
+
+[//]: # (	Prefix           // 首字母风格，返回类型为[c g x]	开启多音字后为 [c|z g|x])
+
+[//]: # (	PrefixStr        // 首字母字符串格式 [cgx]	开启多音字后为 [cgx zgx cgh zgh])
+
+    // 案例如下
+    
+    
     // Normal输出
     a := pinyin.Args{
       Style: pinyin.Normal,

@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	pinyin "github.com/hudehan/simple-pinyin"
 	"github.com/mattn/go-isatty"
 	"io"
 	"os"
@@ -29,18 +30,17 @@ func main() {
 	}
 
 	if len(hans) == 0 {
-		fmt.Fprintln(os.Stderr, "请至少输入一个汉字,: pinyin [-e]  HANS [HANS ...]")
+		fmt.Fprintln(os.Stderr, "请至少输入一个汉字,: pinyin [-e]  HANS ")
 		fmt.Fprintln(os.Stderr, "-h : 查看帮助")
 		os.Exit(1)
 	}
 
-	//pys := (strings.Join(hans, ""), *heteronym)
-	pys := make([][]string, len(hans))
-	fmt.Print(*heteronym)
-	for _, s := range pys {
-		fmt.Print(strings.Join(s, ","), " ")
-	}
-	if len(pys) > 0 {
-		fmt.Println()
+	res := pinyin.Pinyin(strings.Join(hans, ""), pinyin.Args{
+		Style:     pinyin.Str,
+		Heteronym: *heteronym,
+	})
+
+	for _, s := range res {
+		fmt.Println(s, " ")
 	}
 }
