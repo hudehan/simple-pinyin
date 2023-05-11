@@ -2,7 +2,6 @@ package pinyin
 
 import (
 	"strings"
-	"sync"
 )
 
 // Args 配置信息
@@ -21,16 +20,6 @@ const (
 	Prefix           // 首字母风格，返回类型为[c g x]	开启多音字后为 [c|z g|x]
 	PrefixStr        // 首字母字符串格式 [cgx]	开启多音字后为 [cgx zgx cgh zgh]
 )
-
-var pinyinMap = map[string][]string{}
-var once = sync.Once{}
-
-func init() {
-	once.Do(
-		func() {
-			initSupplement()
-		})
-}
 
 func Pinyin(word string, args Args) (res []string) {
 	switch args.Style {
