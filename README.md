@@ -1,5 +1,5 @@
 # simple-pinyin
-适合go简单的拼音库，可以自己配置基数据，也可以使用第三方字典，支持多格式输出
+适合go简单的拼音库，可以自己配置基数据，也可以使用第三方字典，支持多格式输出，支持多音字，支持二进制
 
 
 go-pinyin
@@ -25,7 +25,7 @@ install CLI tool:
 ```
 go get -u github.com/hudehan/simple-pinyin/cmd/pinyin
 $ pinyin 中国人
-zhōng guó rén
+zhong guo ren
 ```
 
 
