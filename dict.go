@@ -4,18 +4,25 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
+	"path/filepath"
 	"strings"
 )
 
 // InitSupplement pinyin.json为基础数据，用户可以更改，kTGHZ2013.txt为字典，基础数据没有的话通过字典补充
 func initSupplement() {
+
+	file, _ := exec.LookPath(os.Args[0])
+	path, _ := filepath.Abs(file)
+
 	// 读取本地文件
-	pinyinJson, err := os.ReadFile("./pinyin.json")
+	pinyinJson, err := os.ReadFile(path + "/pinyin.json")
 	if err != nil {
 		return
 	}
 	json.Unmarshal(pinyinJson, &pinyinMap)
-	txt, err := os.ReadFile("./kTGHZ2013.txt")
+
+	txt, err := os.ReadFile(path + "/kTGHZ2013.txt")
 	if err != nil {
 		return
 	}
