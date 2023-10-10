@@ -109,6 +109,7 @@ func TransferPinYinStr(word string, fallback func(ch string) string, heteronym b
 
 func TransferPinYinPrefixStr(word string, fallback func(ch string) string, heteronym bool) (res []string) {
 	queue := []string{""}
+	set := make(map[string]struct{})
 	for _, w := range word {
 		var tmp []string
 		// 通过bfs算法，找出所有的组合
@@ -116,7 +117,11 @@ func TransferPinYinPrefixStr(word string, fallback func(ch string) string, heter
 			for j := 0; j < len(queue); j++ {
 				if heteronym {
 					for k := 0; k < len(arr); k++ {
-						tmp = append(tmp, queue[j]+arr[k][:1])
+						item := queue[j] + arr[k][:1]
+						if _, ok := set[item]; !ok {
+							tmp = append(tmp, item)
+							set[item] = struct{}{}
+						}
 					}
 				} else {
 					tmp = append(tmp, queue[j]+arr[0])
